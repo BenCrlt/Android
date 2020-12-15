@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+git
     private static final String TAG = "Hello";
     //private String message = "message par défaut";
     MyViewModel viewModel ;
