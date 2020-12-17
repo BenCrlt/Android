@@ -64,6 +64,19 @@
         app:layout_constraintTop_toBottomOf="@+id/fragment2"
         app:layout_constraintVertical_bias="0.08" />
 
+    <fragment
+        android:id="@+id/navcontainer"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:defaultNavHost="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_fragB"
+        app:navGraph="@navigation/mynavigation" />
+
+    <!--
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,5 +86,6 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_fragB">
 
     </FrameLayout>
+    -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,8 @@ package com.example.fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -16,36 +18,46 @@ public class MainActivity extends AppCompatActivity {
     FragmentB fragmentB;
     FragmentC fragmentC;
 
+    NavController navController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "On Create " + getClass().getSimpleName());
         setContentView(R.layout.activity_main);
 
-        this.fragmentA = new FragmentA();
+        /*this.fragmentA = new FragmentA();
         this.fragmentB = new FragmentB();
-        this.fragmentC = new FragmentC();
+        this.fragmentC = new FragmentC();*/
+
+        navController = Navigation.findNavController(this, R.id.navcontainer);
     }
 
     public void OnClickFragmentA(View v) {
-        if (fm.findFragmentById(R.id.fragmentcontainer) != fragmentA) {
+        /*if (fm.findFragmentById(R.id.fragmentcontainer) != fragmentA) {
             fm.popBackStackImmediate();
             fm.beginTransaction().replace(R.id.fragmentcontainer, fragmentA).addToBackStack(null).commit();
-        }
+        }*/
+        navController.popBackStack(navController.getGraph().getStartDestination(), false);
+        navController.navigate(R.id.fragmentA);
     }
 
     public void onClickFragmentB(View v) {
-        if (fm.findFragmentById(R.id.fragmentcontainer) != fragmentB) {
+        /*if (fm.findFragmentById(R.id.fragmentcontainer) != fragmentB) {
             fm.popBackStackImmediate();
             fm.beginTransaction().replace(R.id.fragmentcontainer, fragmentB).addToBackStack(null).commit();
-        }
+        }*/
+        navController.popBackStack(navController.getGraph().getStartDestination(), false);
+        navController.navigate(R.id.fragmentB);
     }
 
     public void onClickFragmentC(View v) {
-        if (fm.findFragmentById(R.id.fragmentcontainer) != fragmentC) {
+        /*if (fm.findFragmentById(R.id.fragmentcontainer) != fragmentC) {
             fm.popBackStackImmediate();
             fm.beginTransaction().replace(R.id.fragmentcontainer, fragmentC).addToBackStack(null).commit();
-        }
+        }*/
+        navController.popBackStack(navController.getGraph().getStartDestination(), false);
+        navController.navigate(R.id.fragmentC);
     }
 
     @Override
