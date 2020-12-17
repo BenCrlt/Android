@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-git
     private static final String TAG = "Hello";
     //private String message = "message par défaut";
     MyViewModel viewModel ;
@@ -25,8 +24,7 @@ git
         {
             Log.i(TAG, "on create (on restore instance state " + getLocalClassName()) ;
             this.message = savedInstanceState.getString("message_key") ;
-        }
-        */
+        }*/
         this.viewModel = new ViewModelProvider(this).get(MyViewModel.class) ;
         this.viewModel.getMessage().observe(this, text -> ((TextView) findViewById(R.id.saveText)).setText(text)) ;
         /* Méthode implicite
