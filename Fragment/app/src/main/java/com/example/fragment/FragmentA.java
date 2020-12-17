@@ -11,20 +11,39 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link FragmentA#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentA extends Fragment {
+public class FragmentA extends Fragment implements View.OnClickListener {
 
     private final String TAG = "HELLO";
+    private String message = "message par défaut";
+    private View root;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_a, container, false);
+        this.root = inflater.inflate(R.layout.fragment_a, container, false);
+        ((Button) root.findViewById(R.id.SaveText_btn)).setOnClickListener(this);
+        return this.root;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.SaveText_btn:
+                this.message = ((EditText) root.findViewById(R.id.editmsg)).getText().toString();
+                ((TextView)root.findViewById(R.id.msgView)).setText(this.message);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
